@@ -2,16 +2,9 @@
 
 using Python.Runtime;
 using Sudoku.Shared;
-public class SolverTest: ISudokuSolver
-{
- public SudokuGrid Solve(SudokuGrid s)
- {
 
-  return s;
- }
-}
 
-public class TestPythonSolver : PythonSolverBase
+public class RecuitSimpleSolver : PythonSolverBase
 
 	{
 		public override Shared.SudokuGrid Solve(Shared.SudokuGrid s)
@@ -87,8 +80,9 @@ public class TestPythonSolver : PythonSolverBase
 		protected override void InitializePythonComponents()
 		{
 			//declare your pip packages here
-			// InstallPipModule("numpy");
-			base.InitializePythonComponents();
+			InstallPipModule("numpy");
+			InstallPipModule("simanneal");
+		base.InitializePythonComponents();
 		}
 
 	}
